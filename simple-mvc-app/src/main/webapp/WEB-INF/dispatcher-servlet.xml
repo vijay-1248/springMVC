@@ -8,18 +8,24 @@
 		<property name="mappings">
 			<props>
 				<prop key="welcome.mvc">welcomeController</prop>
+				
 			</props>
 		</property>
 	</bean>
 	
 	<!-- controller information -->
 	<bean id="welcomeController" class="com.simple.controller.WelcomeController"/>
+	<bean id="/product1" class="com.simple.controller.ProductController">
+		<property name="product" ref="ps"></property>	
+	</bean>
 	
 	<!-- view resolver -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" ></bean>
 	
 	
 </beans>
